@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Opportunity Pursuit Agent — Workflow</title>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #0f1117;
+      color: #e2e8f0;
+      padding: 40px 24px;
+      min-height: 100vh;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    header h1 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: #f8fafc;
+      letter-spacing: -0.5px;
+    }
+    header p {
+      margin-top: 8px;
+      font-size: 0.9rem;
+      color: #94a3b8;
+    }
+
+    .legend {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 36px;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.8rem;
+      color: #94a3b8;
+    }
+    .legend-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 3px;
+    }
+
+    .diagram-container {
+      background: #1e2230;
+      border: 1px solid #2d3348;
+      border-radius: 16px;
+      padding: 40px 24px;
+      max-width: 1100px;
+      margin: 0 auto;
+      overflow-x: auto;
+    }
+
+    .mermaid {
+      display: flex;
+      justify-content: center;
+    }
+
+    /* override mermaid defaults for dark bg */
+    .mermaid svg {
+      font-family: inherit;
+    }
+
+    .section-label {
+      max-width: 1100px;
+      margin: 32px auto 8px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #64748b;
+    }
+
+    .phases {
+      max-width: 1100px;
+      margin: 36px auto 0;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+    }
+    .phase {
+      background: #1e2230;
+      border: 1px solid #2d3348;
+      border-radius: 12px;
+      padding: 16px 14px;
+    }
+    .phase-num {
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+    }
+    .phase-title {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #f1f5f9;
+      margin-bottom: 8px;
+    }
+    .phase-items {
+      list-style: none;
+      font-size: 0.75rem;
+      color: #94a3b8;
+      line-height: 1.6;
+    }
+    .phase-items li::before { content: "· "; color: #64748b; }
+
+    .p1 .phase-num { color: #60a5fa; }
+    .p2 .phase-num { color: #a78bfa; }
+    .p3 .phase-num { color: #34d399; }
+    .p4 .phase-num { color: #fb923c; }
+    .p5 .phase-num { color: #f472b6; }
+    .p1 { border-top: 2px solid #60a5fa; }
+    .p2 { border-top: 2px solid #a78bfa; }
+    .p3 { border-top: 2px solid #34d399; }
+    .p4 { border-top: 2px solid #fb923c; }
+    .p5 { border-top: 2px solid #f472b6; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Opportunity Pursuit Agent</h1>
+    <p>End-to-end reasoning workflow from RFP intake to bid recommendation</p>
+  </header>
+
+  <div class="legend">
+    <div class="legend-item"><div class="legend-dot" style="background:#60a5fa"></div> Intake</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#a78bfa"></div> Analysis</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#34d399"></div> Retrieval</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#fb923c"></div> Decision</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#f472b6"></div> Output</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#fbbf24"></div> Human-in-loop</div>
+  </div>
+
+  <div class="diagram-container">
+    <div class="mermaid">
+flowchart TD
+    A(["`**RFP Document**
+    PDF / DOCX / Portal export`"]) --> B
+
+    subgraph INTAKE ["  PHASE 1 · INTAKE  "]
+        B["Document Parser
+        Extract raw text + structure"] --> C["Requirements Extractor
+        Mandatory · Scored · Eliminatory"]
+        C --> D["Metadata Tagger
+        Industry · Size · Deadline · Geography"]
+    end
+
+    D --> E
+
+    subgraph ANALYSIS ["  PHASE 2 · ANALYSIS  "]
+        E["Capability Matcher
+        RFP reqs vs. internal knowledge base"] --> F["Gap Identifier
+        Missing certs · Unsupported features · Team gaps"]
+        F --> G["Competitive Context
+        Known competitors · Buyer history"]
+    end
+
+    G --> H
+
+    subgraph RETRIEVAL ["  PHASE 3 · MEMORY RETRIEVAL  "]
+        H["Win/Loss Retriever
+        Similar past opportunities"] --> I["Proposal Library Search
+        Reusable content blocks"]
+        I --> J["SME & Compliance Lookup
+        Who owns each gap"]
+    end
+
+    J --> K
+
+    subgraph DECISION ["  PHASE 4 · DECISION ENGINE  "]
+        K["Bid Scorer
+        0–100 confidence score + reasoning"] --> L{"Confidence threshold?"}
+        L -->|"≥ 70 · Proceed"| M["Auto-generate recommendation"]
+        L -->|"40–69 · Uncertain"| N[/"Human Review Request
+        Escalate with evidence"/]
+        L -->|"< 40 · No-bid"| O["No-bid with rationale"]
+        N --> M
+    end
+
+    M --> P
+    O --> P
+
+    subgraph OUTPUT ["  PHASE 5 · OUTPUT PACKAGE  "]
+        P["Bid Recommendation Report
+        Go / No-Go + confidence"] --> Q["Gap Action Plan
+        Owner · Deadline · Priority"]
+        Q --> R["Win Themes
+        Top 3 differentiators to emphasize"]
+        R --> S["Submission Checklist
+        All required artefacts + owners"]
+    end
+
+    S --> T(["`**Delivered to Pursuit Team**
+    Slack · Email · CRM`"])
+
+    style INTAKE fill:#0f1e3d,stroke:#60a5fa,stroke-width:1.5px,color:#e2e8f0
+    style ANALYSIS fill:#1a1040,stroke:#a78bfa,stroke-width:1.5px,color:#e2e8f0
+    style RETRIEVAL fill:#0a2e20,stroke:#34d399,stroke-width:1.5px,color:#e2e8f0
+    style DECISION fill:#2e1a06,stroke:#fb923c,stroke-width:1.5px,color:#e2e8f0
+    style OUTPUT fill:#2e0e20,stroke:#f472b6,stroke-width:1.5px,color:#e2e8f0
+
+    style A fill:#1e3a5f,stroke:#60a5fa,color:#e2e8f0
+    style T fill:#2e0e20,stroke:#f472b6,color:#e2e8f0
+    style N fill:#3d2e00,stroke:#fbbf24,stroke-width:2px,color:#fef3c7
+    style L fill:#2e1a06,stroke:#fb923c,color:#fed7aa
+
+    style B fill:#0d2240,stroke:#3b82f6,color:#bfdbfe
+    style C fill:#0d2240,stroke:#3b82f6,color:#bfdbfe
+    style D fill:#0d2240,stroke:#3b82f6,color:#bfdbfe
+    style E fill:#140c30,stroke:#8b5cf6,color:#ddd6fe
+    style F fill:#140c30,stroke:#8b5cf6,color:#ddd6fe
+    style G fill:#140c30,stroke:#8b5cf6,color:#ddd6fe
+    style H fill:#062018,stroke:#10b981,color:#a7f3d0
+    style I fill:#062018,stroke:#10b981,color:#a7f3d0
+    style J fill:#062018,stroke:#10b981,color:#a7f3d0
+    style K fill:#1f0d00,stroke:#ea580c,color:#fed7aa
+    style M fill:#1f0d00,stroke:#ea580c,color:#fed7aa
+    style O fill:#1f0d00,stroke:#ea580c,color:#fed7aa
+    style P fill:#1f0012,stroke:#ec4899,color:#fce7f3
+    style Q fill:#1f0012,stroke:#ec4899,color:#fce7f3
+    style R fill:#1f0012,stroke:#ec4899,color:#fce7f3
+    style S fill:#1f0012,stroke:#ec4899,color:#fce7f3
+    </div>
+  </div>
+
+  <div class="section-label">Phase breakdown</div>
+
+  <div class="phases">
+    <div class="phase p1">
+      <div class="phase-num">Phase 1</div>
+      <div class="phase-title">Intake</div>
+      <ul class="phase-items">
+        <li>Parse PDF/DOCX/portal</li>
+        <li>Extract requirements</li>
+        <li>Tag mandatory vs. scored</li>
+        <li>Identify deadlines & metadata</li>
+      </ul>
+    </div>
+    <div class="phase p2">
+      <div class="phase-num">Phase 2</div>
+      <div class="phase-title">Analysis</div>
+      <ul class="phase-items">
+        <li>Match reqs to capabilities</li>
+        <li>Flag gaps &amp; missing certs</li>
+        <li>Surface competitive context</li>
+      </ul>
+    </div>
+    <div class="phase p3">
+      <div class="phase-num">Phase 3</div>
+      <div class="phase-title">Memory Retrieval</div>
+      <ul class="phase-items">
+        <li>Retrieve similar past bids</li>
+        <li>Search proposal library</li>
+        <li>Identify SME owners</li>
+      </ul>
+    </div>
+    <div class="phase p4">
+      <div class="phase-num">Phase 4</div>
+      <div class="phase-title">Decision Engine</div>
+      <ul class="phase-items">
+        <li>Score 0–100 bid confidence</li>
+        <li>Auto-proceed ≥ 70</li>
+        <li>Escalate to human 40–69</li>
+        <li>No-bid below 40</li>
+      </ul>
+    </div>
+    <div class="phase p5">
+      <div class="phase-num">Phase 5</div>
+      <div class="phase-title">Output Package</div>
+      <ul class="phase-items">
+        <li>Go / No-Go report</li>
+        <li>Gap action plan + owners</li>
+        <li>Top 3 win themes</li>
+        <li>Submission checklist</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'dark',
+      themeVariables: {
+        fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+        fontSize: '13px',
+        darkMode: true,
+        background: '#0f1117',
+        primaryColor: '#1e2230',
+        primaryTextColor: '#e2e8f0',
+        primaryBorderColor: '#2d3348',
+        lineColor: '#475569',
+        secondaryColor: '#1e2230',
+        tertiaryColor: '#1e2230',
+      },
+      flowchart: {
+        curve: 'basis',
+        padding: 20,
+        nodeSpacing: 50,
+        rankSpacing: 60,
+      }
+    });
+  </script>
+</body>
+</html>
