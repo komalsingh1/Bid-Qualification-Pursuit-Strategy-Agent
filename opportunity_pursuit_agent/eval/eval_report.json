@@ -1,0 +1,278 @@
+{
+  "mode": "demo",
+  "run_at": "2026-06-14T17:04:55.461886Z",
+  "rfps": {
+    "California CDHS (Sample)": {
+      "metrics": {
+        "decision_accuracy": {
+          "score": 1.0,
+          "explanation": "\u2713 Correct \u2014 CONDITIONAL BID",
+          "weight": 0.25,
+          "weighted": 0.25
+        },
+        "score_range_accuracy": {
+          "score": 1.0,
+          "explanation": "\u2713 Score 55 within expected range [45\u201365]",
+          "weight": 0.1,
+          "weighted": 0.1
+        },
+        "gap_recall": {
+          "score": 1.0,
+          "explanation": "\u2713 Found 5/5 required gaps",
+          "weight": 0.15,
+          "weighted": 0.15
+        },
+        "gap_precision": {
+          "score": 1.0,
+          "explanation": "\u2713 5/5 flagged gaps verified as real",
+          "weight": 0.1,
+          "weighted": 0.1
+        },
+        "blocking_gap_recall": {
+          "score": 1.0,
+          "explanation": "\u2713 All 1 blocking gap(s) correctly identified",
+          "weight": 0.2,
+          "weighted": 0.2
+        },
+        "win_theme_relevance": {
+          "score": 1.0,
+          "explanation": "\u2713 3/3 expected theme keywords present",
+          "weight": 0.08,
+          "weighted": 0.08
+        },
+        "checklist_completeness": {
+          "score": 1.0,
+          "explanation": "\u2713 5/5 required areas in checklist",
+          "weight": 0.07,
+          "weighted": 0.07
+        },
+        "confidence_calibration": {
+          "score": 1.0,
+          "explanation": "\u2713 6/6 steps in expected confidence range\n    \u2713 extract_requirements: 97% \u2208 [85\u2013100]\n    \u2713 check_capabilities: 91% \u2208 [80\u2013100]\n    \u2713 get_win_loss_history: 88% \u2208 [75\u2013100]\n    \u2713 identify_gaps: 85% \u2208 [75\u2013100]\n    \u2713 get_sme_and_content: 90% \u2208 [80\u2013100]\n    \u2713 generate_recommendation: 72% \u2208 [60\u201385]",
+          "weight": 0.03,
+          "weighted": 0.03
+        },
+        "escalation_correctness": {
+          "score": 0.5,
+          "explanation": "\u25b3 F1=0.50 \u2014 TP:1 FP:0 FN:2",
+          "weight": 0.02,
+          "weighted": 0.01
+        }
+      },
+      "composite_score": 0.99,
+      "pass": true,
+      "agent_decision": "CONDITIONAL BID",
+      "correct_decision": "CONDITIONAL BID",
+      "bid_score": 55
+    },
+    "Hemisfair AR Project": {
+      "metrics": {
+        "decision_accuracy": {
+          "score": 1.0,
+          "explanation": "\u2713 Correct \u2014 NO BID",
+          "weight": 0.25,
+          "weighted": 0.25
+        },
+        "score_range_accuracy": {
+          "score": 1.0,
+          "explanation": "\u2713 Score 22 within expected range [0\u201335]",
+          "weight": 0.1,
+          "weighted": 0.1
+        },
+        "gap_recall": {
+          "score": 1.0,
+          "explanation": "\u2713 Found 4/4 required gaps",
+          "weight": 0.15,
+          "weighted": 0.15
+        },
+        "gap_precision": {
+          "score": 1.0,
+          "explanation": "\u2713 5/5 flagged gaps verified as real",
+          "weight": 0.1,
+          "weighted": 0.1
+        },
+        "blocking_gap_recall": {
+          "score": 1.0,
+          "explanation": "\u2713 All 2 blocking gap(s) correctly identified",
+          "weight": 0.2,
+          "weighted": 0.2
+        },
+        "win_theme_relevance": {
+          "score": 1.0,
+          "explanation": "\u2713 No win themes expected or produced (correct \u2014 no-bid)",
+          "weight": 0.08,
+          "weighted": 0.08
+        },
+        "checklist_completeness": {
+          "score": 1.0,
+          "explanation": "\u2713 No checklist items expected (no-bid \u2014 correct)",
+          "weight": 0.07,
+          "weighted": 0.07
+        },
+        "confidence_calibration": {
+          "score": 1.0,
+          "explanation": "\u2713 6/6 steps in expected confidence range\n    \u2713 extract_requirements: 95% \u2208 [85\u2013100]\n    \u2713 check_capabilities: 55% \u2208 [40\u201370]\n    \u2713 get_win_loss_history: 40% \u2208 [20\u201355]\n    \u2713 identify_gaps: 92% \u2208 [85\u2013100]\n    \u2713 get_sme_and_content: 35% \u2208 [20\u201350]\n    \u2713 generate_recommendation: 96% \u2208 [85\u2013100]",
+          "weight": 0.03,
+          "weighted": 0.03
+        },
+        "escalation_correctness": {
+          "score": 1.0,
+          "explanation": "\u2713 F1=1.00 \u2014 TP:3 FP:0 FN:0",
+          "weight": 0.02,
+          "weighted": 0.02
+        }
+      },
+      "composite_score": 1.0,
+      "pass": true,
+      "agent_decision": "NO BID",
+      "correct_decision": "NO BID",
+      "bid_score": 22
+    },
+    "DLC Website Redesign": {
+      "metrics": {
+        "decision_accuracy": {
+          "score": 1.0,
+          "explanation": "\u2713 Correct \u2014 NO BID",
+          "weight": 0.25,
+          "weighted": 0.25
+        },
+        "score_range_accuracy": {
+          "score": 1.0,
+          "explanation": "\u2713 Score 31 within expected range [20\u201345]",
+          "weight": 0.1,
+          "weighted": 0.1
+        },
+        "gap_recall": {
+          "score": 1.0,
+          "explanation": "\u2713 Found 4/4 required gaps",
+          "weight": 0.15,
+          "weighted": 0.15
+        },
+        "gap_precision": {
+          "score": 1.0,
+          "explanation": "\u2713 5/5 flagged gaps verified as real",
+          "weight": 0.1,
+          "weighted": 0.1
+        },
+        "blocking_gap_recall": {
+          "score": 1.0,
+          "explanation": "\u2713 All 1 blocking gap(s) correctly identified",
+          "weight": 0.2,
+          "weighted": 0.2
+        },
+        "win_theme_relevance": {
+          "score": 1.0,
+          "explanation": "\u2713 2/2 expected theme keywords present",
+          "weight": 0.08,
+          "weighted": 0.08
+        },
+        "checklist_completeness": {
+          "score": 1.0,
+          "explanation": "\u2713 No checklist items expected (no-bid \u2014 correct)",
+          "weight": 0.07,
+          "weighted": 0.07
+        },
+        "confidence_calibration": {
+          "score": 1.0,
+          "explanation": "\u2713 6/6 steps in expected confidence range\n    \u2713 extract_requirements: 93% \u2208 [85\u2013100]\n    \u2713 check_capabilities: 62% \u2208 [50\u201375]\n    \u2713 get_win_loss_history: 48% \u2208 [35\u201365]\n    \u2713 identify_gaps: 88% \u2208 [80\u2013100]\n    \u2713 get_sme_and_content: 44% \u2208 [35\u201360]\n    \u2713 generate_recommendation: 91% \u2208 [80\u2013100]",
+          "weight": 0.03,
+          "weighted": 0.03
+        },
+        "escalation_correctness": {
+          "score": 1.0,
+          "explanation": "\u2713 F1=1.00 \u2014 TP:3 FP:0 FN:0",
+          "weight": 0.02,
+          "weighted": 0.02
+        }
+      },
+      "composite_score": 1.0,
+      "pass": true,
+      "agent_decision": "NO BID",
+      "correct_decision": "NO BID",
+      "bid_score": 31
+    },
+    "MCCVB Creative Agency": {
+      "metrics": {
+        "decision_accuracy": {
+          "score": 1.0,
+          "explanation": "\u2713 Correct \u2014 NO BID",
+          "weight": 0.25,
+          "weighted": 0.25
+        },
+        "score_range_accuracy": {
+          "score": 1.0,
+          "explanation": "\u2713 Score 8 within expected range [0\u201320]",
+          "weight": 0.1,
+          "weighted": 0.1
+        },
+        "gap_recall": {
+          "score": 1.0,
+          "explanation": "\u2713 Found 4/4 required gaps",
+          "weight": 0.15,
+          "weighted": 0.15
+        },
+        "gap_precision": {
+          "score": 1.0,
+          "explanation": "\u2713 4/4 flagged gaps verified as real",
+          "weight": 0.1,
+          "weighted": 0.1
+        },
+        "blocking_gap_recall": {
+          "score": 1.0,
+          "explanation": "\u2713 All 3 blocking gap(s) correctly identified",
+          "weight": 0.2,
+          "weighted": 0.2
+        },
+        "win_theme_relevance": {
+          "score": 1.0,
+          "explanation": "\u2713 No win themes expected or produced (correct \u2014 no-bid)",
+          "weight": 0.08,
+          "weighted": 0.08
+        },
+        "checklist_completeness": {
+          "score": 1.0,
+          "explanation": "\u2713 No checklist items expected (no-bid \u2014 correct)",
+          "weight": 0.07,
+          "weighted": 0.07
+        },
+        "confidence_calibration": {
+          "score": 1.0,
+          "explanation": "\u2713 6/6 steps in expected confidence range\n    \u2713 extract_requirements: 94% \u2208 [85\u2013100]\n    \u2713 check_capabilities: 20% \u2208 [10\u201335]\n    \u2713 get_win_loss_history: 18% \u2208 [10\u201330]\n    \u2713 identify_gaps: 95% \u2208 [85\u2013100]\n    \u2713 get_sme_and_content: 15% \u2208 [10\u201325]\n    \u2713 generate_recommendation: 98% \u2208 [90\u2013100]",
+          "weight": 0.03,
+          "weighted": 0.03
+        },
+        "escalation_correctness": {
+          "score": 1.0,
+          "explanation": "\u2713 F1=1.00 \u2014 TP:3 FP:0 FN:0",
+          "weight": 0.02,
+          "weighted": 0.02
+        }
+      },
+      "composite_score": 1.0,
+      "pass": true,
+      "agent_decision": "NO BID",
+      "correct_decision": "NO BID",
+      "bid_score": 8
+    }
+  },
+  "summary": {
+    "mean_composite": 0.998,
+    "pass_rate": 1.0,
+    "metric_means": {
+      "decision_accuracy": 1.0,
+      "blocking_gap_recall": 1.0,
+      "gap_recall": 1.0,
+      "gap_precision": 1.0,
+      "score_range_accuracy": 1.0,
+      "win_theme_relevance": 1.0,
+      "checklist_completeness": 1.0,
+      "confidence_calibration": 1.0,
+      "escalation_correctness": 0.875
+    },
+    "worst_metric": "escalation_correctness",
+    "best_metric": "decision_accuracy",
+    "total_rfps": 4,
+    "passed": 4,
+    "failed": 0
+  }
+}

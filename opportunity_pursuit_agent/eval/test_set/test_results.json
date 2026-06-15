@@ -1,0 +1,614 @@
+{
+  "mode": "heuristic",
+  "run_at": "2026-06-14T17:03:56.815226Z",
+  "cases": {
+    "TC-01: NY Medicaid Analytics": {
+      "metrics": {
+        "decision_accuracy": {
+          "score": 0.0,
+          "explanation": "\u2717 Wrong \u2014 agent: NO BID, expected: BID",
+          "weight": 0.25,
+          "weighted": 0.0
+        },
+        "score_range_accuracy": {
+          "score": 0.0,
+          "explanation": "\u2717 Score 38 outside expected range [72\u201388]",
+          "weight": 0.1,
+          "weighted": 0.0
+        },
+        "gap_recall": {
+          "score": 1.0,
+          "explanation": "\u2713 No required gaps (correct for this opportunity)",
+          "weight": 0.15,
+          "weighted": 0.15
+        },
+        "gap_precision": {
+          "score": 0.2,
+          "explanation": "\u25b3 0/5 flagged gaps verified as real",
+          "weight": 0.1,
+          "weighted": 0.02
+        },
+        "blocking_gap_recall": {
+          "score": 1.0,
+          "explanation": "\u2713 No blocking gaps expected \u2014 correct",
+          "weight": 0.2,
+          "weighted": 0.2
+        },
+        "win_theme_relevance": {
+          "score": 0.5,
+          "explanation": "\u25b3 2/4 expected theme keywords present",
+          "weight": 0.08,
+          "weighted": 0.04
+        },
+        "checklist_completeness": {
+          "score": 0.333,
+          "explanation": "\u2717 1/3 required areas in checklist",
+          "weight": 0.07,
+          "weighted": 0.023
+        },
+        "confidence_calibration": {
+          "score": 0.5,
+          "explanation": "\u25b3 3/6 steps in expected confidence range\n    \u2713 extract_requirements: 95% \u2208 [88\u2013100]\n    \u2717 check_capabilities: 60% \u2209 [88\u2013100]\n    \u2713 get_win_loss_history: 85% \u2208 [82\u2013100]\n    \u2713 identify_gaps: 88% \u2208 [85\u2013100]\n    \u2717 get_sme_and_content: 73% \u2209 [82\u2013100]\n    \u2717 generate_recommendation: 68% \u2209 [80\u2013100]",
+          "weight": 0.03,
+          "weighted": 0.015
+        },
+        "escalation_correctness": {
+          "score": 0.5,
+          "explanation": "\u25b3 Escalation fired unexpectedly on: check_capabilities, generate_recommendation, get_sme_and_content",
+          "weight": 0.02,
+          "weighted": 0.01
+        }
+      },
+      "composite_score": 0.458,
+      "pass": false,
+      "agent_decision": "NO BID",
+      "correct_decision": "BID",
+      "bid_score": 38,
+      "elapsed_s": 0.0,
+      "agent_turns": 4,
+      "step_scores": {
+        "extract_requirements": 95,
+        "check_capabilities": 60,
+        "get_win_loss_history": 85,
+        "identify_gaps": 88,
+        "get_sme_and_content": 73,
+        "generate_recommendation": 68
+      }
+    },
+    "TC-02: CMS Federal Health Platform": {
+      "metrics": {
+        "decision_accuracy": {
+          "score": 1.0,
+          "explanation": "\u2713 Correct \u2014 NO BID",
+          "weight": 0.25,
+          "weighted": 0.25
+        },
+        "score_range_accuracy": {
+          "score": 0.0,
+          "explanation": "\u2717 Score 38 outside expected range [0\u201325]",
+          "weight": 0.1,
+          "weighted": 0.0
+        },
+        "gap_recall": {
+          "score": 0.0,
+          "explanation": "\u2717 Found 0/5 required gaps",
+          "weight": 0.15,
+          "weighted": 0.0
+        },
+        "gap_precision": {
+          "score": 0.2,
+          "explanation": "\u25b3 0/5 flagged gaps verified as real",
+          "weight": 0.1,
+          "weighted": 0.02
+        },
+        "blocking_gap_recall": {
+          "score": 1.0,
+          "explanation": "\u2713 All 3 blocking gap(s) correctly identified",
+          "weight": 0.2,
+          "weighted": 0.2
+        },
+        "win_theme_relevance": {
+          "score": 0.7,
+          "explanation": "\u25b3 Win themes produced but none expected (minor concern on no-bid)",
+          "weight": 0.08,
+          "weighted": 0.056
+        },
+        "checklist_completeness": {
+          "score": 1.0,
+          "explanation": "\u2713 No checklist items expected (no-bid \u2014 correct)",
+          "weight": 0.07,
+          "weighted": 0.07
+        },
+        "confidence_calibration": {
+          "score": 0.167,
+          "explanation": "\u2717 1/6 steps in expected confidence range\n    \u2713 extract_requirements: 95% \u2208 [88\u2013100]\n    \u2717 check_capabilities: 60% \u2209 [15\u201340]\n    \u2717 get_win_loss_history: 85% \u2209 [20\u201345]\n    \u2717 identify_gaps: 88% \u2209 [90\u2013100]\n    \u2717 get_sme_and_content: 73% \u2209 [10\u201335]\n    \u2717 generate_recommendation: 68% \u2209 [92\u2013100]",
+          "weight": 0.03,
+          "weighted": 0.005
+        },
+        "escalation_correctness": {
+          "score": 0.67,
+          "explanation": "\u25b3 F1=0.67 \u2014 TP:2 FP:1 FN:1",
+          "weight": 0.02,
+          "weighted": 0.013
+        }
+      },
+      "composite_score": 0.614,
+      "pass": false,
+      "agent_decision": "NO BID",
+      "correct_decision": "NO BID",
+      "bid_score": 38,
+      "elapsed_s": 0.0,
+      "agent_turns": 4,
+      "step_scores": {
+        "extract_requirements": 95,
+        "check_capabilities": 60,
+        "get_win_loss_history": 85,
+        "identify_gaps": 88,
+        "get_sme_and_content": 73,
+        "generate_recommendation": 68
+      }
+    },
+    "TC-03: Colorado Care Management": {
+      "metrics": {
+        "decision_accuracy": {
+          "score": 0.0,
+          "explanation": "\u2717 Wrong \u2014 agent: NO BID, expected: CONDITIONAL BID",
+          "weight": 0.25,
+          "weighted": 0.0
+        },
+        "score_range_accuracy": {
+          "score": 0.0,
+          "explanation": "\u2717 Score 38 outside expected range [52\u201368]",
+          "weight": 0.1,
+          "weighted": 0.0
+        },
+        "gap_recall": {
+          "score": 0.0,
+          "explanation": "\u2717 Found 0/4 required gaps",
+          "weight": 0.15,
+          "weighted": 0.0
+        },
+        "gap_precision": {
+          "score": 0.2,
+          "explanation": "\u25b3 0/5 flagged gaps verified as real",
+          "weight": 0.1,
+          "weighted": 0.02
+        },
+        "blocking_gap_recall": {
+          "score": 1.0,
+          "explanation": "\u2713 No blocking gaps expected \u2014 correct",
+          "weight": 0.2,
+          "weighted": 0.2
+        },
+        "win_theme_relevance": {
+          "score": 0.667,
+          "explanation": "\u25b3 2/3 expected theme keywords present",
+          "weight": 0.08,
+          "weighted": 0.053
+        },
+        "checklist_completeness": {
+          "score": 0.5,
+          "explanation": "\u2717 2/4 required areas in checklist",
+          "weight": 0.07,
+          "weighted": 0.035
+        },
+        "confidence_calibration": {
+          "score": 0.833,
+          "explanation": "\u2713 5/6 steps in expected confidence range\n    \u2713 extract_requirements: 95% \u2208 [88\u2013100]\n    \u2717 check_capabilities: 60% \u2209 [75\u201392]\n    \u2713 get_win_loss_history: 85% \u2208 [72\u201390]\n    \u2713 identify_gaps: 88% \u2208 [82\u2013100]\n    \u2713 get_sme_and_content: 73% \u2208 [70\u201390]\n    \u2713 generate_recommendation: 68% \u2208 [68\u201388]",
+          "weight": 0.03,
+          "weighted": 0.025
+        },
+        "escalation_correctness": {
+          "score": 0.86,
+          "explanation": "\u2713 F1=0.86 \u2014 TP:3 FP:0 FN:1",
+          "weight": 0.02,
+          "weighted": 0.017
+        }
+      },
+      "composite_score": 0.35,
+      "pass": false,
+      "agent_decision": "NO BID",
+      "correct_decision": "CONDITIONAL BID",
+      "bid_score": 38,
+      "elapsed_s": 0.0,
+      "agent_turns": 4,
+      "step_scores": {
+        "extract_requirements": 95,
+        "check_capabilities": 60,
+        "get_win_loss_history": 85,
+        "identify_gaps": 88,
+        "get_sme_and_content": 73,
+        "generate_recommendation": 68
+      }
+    },
+    "TC-04: Texas Population Health": {
+      "metrics": {
+        "decision_accuracy": {
+          "score": 0.0,
+          "explanation": "\u2717 Wrong \u2014 agent: NO BID, expected: BID",
+          "weight": 0.25,
+          "weighted": 0.0
+        },
+        "score_range_accuracy": {
+          "score": 0.0,
+          "explanation": "\u2717 Score 38 outside expected range [78\u201392]",
+          "weight": 0.1,
+          "weighted": 0.0
+        },
+        "gap_recall": {
+          "score": 1.0,
+          "explanation": "\u2713 No required gaps (correct for this opportunity)",
+          "weight": 0.15,
+          "weighted": 0.15
+        },
+        "gap_precision": {
+          "score": 0.2,
+          "explanation": "\u25b3 0/5 flagged gaps verified as real",
+          "weight": 0.1,
+          "weighted": 0.02
+        },
+        "blocking_gap_recall": {
+          "score": 1.0,
+          "explanation": "\u2713 No blocking gaps expected \u2014 correct",
+          "weight": 0.2,
+          "weighted": 0.2
+        },
+        "win_theme_relevance": {
+          "score": 0.75,
+          "explanation": "\u25b3 3/4 expected theme keywords present",
+          "weight": 0.08,
+          "weighted": 0.06
+        },
+        "checklist_completeness": {
+          "score": 0.25,
+          "explanation": "\u2717 1/4 required areas in checklist",
+          "weight": 0.07,
+          "weighted": 0.018
+        },
+        "confidence_calibration": {
+          "score": 0.167,
+          "explanation": "\u2717 1/6 steps in expected confidence range\n    \u2713 extract_requirements: 95% \u2208 [90\u2013100]\n    \u2717 check_capabilities: 60% \u2209 [92\u2013100]\n    \u2717 get_win_loss_history: 85% \u2209 [92\u2013100]\n    \u2717 identify_gaps: 88% \u2209 [90\u2013100]\n    \u2717 get_sme_and_content: 73% \u2209 [88\u2013100]\n    \u2717 generate_recommendation: 68% \u2209 [88\u2013100]",
+          "weight": 0.03,
+          "weighted": 0.005
+        },
+        "escalation_correctness": {
+          "score": 0.5,
+          "explanation": "\u25b3 Escalation fired unexpectedly on: check_capabilities, generate_recommendation, get_sme_and_content",
+          "weight": 0.02,
+          "weighted": 0.01
+        }
+      },
+      "composite_score": 0.463,
+      "pass": false,
+      "agent_decision": "NO BID",
+      "correct_decision": "BID",
+      "bid_score": 38,
+      "elapsed_s": 0.0,
+      "agent_turns": 4,
+      "step_scores": {
+        "extract_requirements": 95,
+        "check_capabilities": 60,
+        "get_win_loss_history": 85,
+        "identify_gaps": 88,
+        "get_sme_and_content": 73,
+        "generate_recommendation": 68
+      }
+    },
+    "TC-05: Brand & Digital Marketing Agency": {
+      "metrics": {
+        "decision_accuracy": {
+          "score": 1.0,
+          "explanation": "\u2713 Correct \u2014 NO BID",
+          "weight": 0.25,
+          "weighted": 0.25
+        },
+        "score_range_accuracy": {
+          "score": 0.0,
+          "explanation": "\u2717 Score 38 outside expected range [0\u201315]",
+          "weight": 0.1,
+          "weighted": 0.0
+        },
+        "gap_recall": {
+          "score": 0.0,
+          "explanation": "\u2717 Found 0/4 required gaps",
+          "weight": 0.15,
+          "weighted": 0.0
+        },
+        "gap_precision": {
+          "score": 0.2,
+          "explanation": "\u25b3 0/5 flagged gaps verified as real",
+          "weight": 0.1,
+          "weighted": 0.02
+        },
+        "blocking_gap_recall": {
+          "score": 0.0,
+          "explanation": "\u2717 CRITICAL \u2014 missed blocking gap(s): Media buying capability ($500K+ budget management)",
+          "weight": 0.2,
+          "weighted": 0.0
+        },
+        "win_theme_relevance": {
+          "score": 0.7,
+          "explanation": "\u25b3 Win themes produced but none expected (minor concern on no-bid)",
+          "weight": 0.08,
+          "weighted": 0.056
+        },
+        "checklist_completeness": {
+          "score": 1.0,
+          "explanation": "\u2713 No checklist items expected (no-bid \u2014 correct)",
+          "weight": 0.07,
+          "weighted": 0.07
+        },
+        "confidence_calibration": {
+          "score": 0.167,
+          "explanation": "\u2717 1/6 steps in expected confidence range\n    \u2713 extract_requirements: 95% \u2208 [88\u2013100]\n    \u2717 check_capabilities: 60% \u2209 [5\u201325]\n    \u2717 get_win_loss_history: 85% \u2209 [5\u201320]\n    \u2717 identify_gaps: 88% \u2209 [90\u2013100]\n    \u2717 get_sme_and_content: 73% \u2209 [5\u201320]\n    \u2717 generate_recommendation: 68% \u2209 [92\u2013100]",
+          "weight": 0.03,
+          "weighted": 0.005
+        },
+        "escalation_correctness": {
+          "score": 0.67,
+          "explanation": "\u25b3 F1=0.67 \u2014 TP:2 FP:1 FN:1",
+          "weight": 0.02,
+          "weighted": 0.013
+        }
+      },
+      "composite_score": 0.414,
+      "pass": false,
+      "agent_decision": "NO BID",
+      "correct_decision": "NO BID",
+      "bid_score": 38,
+      "elapsed_s": 0.0,
+      "agent_turns": 4,
+      "step_scores": {
+        "extract_requirements": 95,
+        "check_capabilities": 60,
+        "get_win_loss_history": 85,
+        "identify_gaps": 88,
+        "get_sme_and_content": 73,
+        "generate_recommendation": 68
+      }
+    },
+    "TC-06: Massachusetts Behavioral Health": {
+      "metrics": {
+        "decision_accuracy": {
+          "score": 0.0,
+          "explanation": "\u2717 Wrong \u2014 agent: NO BID, expected: CONDITIONAL BID",
+          "weight": 0.25,
+          "weighted": 0.0
+        },
+        "score_range_accuracy": {
+          "score": 1.0,
+          "explanation": "\u2713 Score 38 within expected range [38\u201358]",
+          "weight": 0.1,
+          "weighted": 0.1
+        },
+        "gap_recall": {
+          "score": 0.0,
+          "explanation": "\u2717 Found 0/5 required gaps",
+          "weight": 0.15,
+          "weighted": 0.0
+        },
+        "gap_precision": {
+          "score": 0.2,
+          "explanation": "\u25b3 0/5 flagged gaps verified as real",
+          "weight": 0.1,
+          "weighted": 0.02
+        },
+        "blocking_gap_recall": {
+          "score": 1.0,
+          "explanation": "\u2713 All 1 blocking gap(s) correctly identified",
+          "weight": 0.2,
+          "weighted": 0.2
+        },
+        "win_theme_relevance": {
+          "score": 0.667,
+          "explanation": "\u25b3 2/3 expected theme keywords present",
+          "weight": 0.08,
+          "weighted": 0.053
+        },
+        "checklist_completeness": {
+          "score": 0.0,
+          "explanation": "\u2717 0/4 required areas in checklist",
+          "weight": 0.07,
+          "weighted": 0.0
+        },
+        "confidence_calibration": {
+          "score": 0.667,
+          "explanation": "\u25b3 4/6 steps in expected confidence range\n    \u2713 extract_requirements: 95% \u2208 [88\u2013100]\n    \u2713 check_capabilities: 60% \u2208 [52\u201372]\n    \u2717 get_win_loss_history: 85% \u2209 [45\u201368]\n    \u2713 identify_gaps: 88% \u2208 [82\u2013100]\n    \u2717 get_sme_and_content: 73% \u2209 [40\u201365]\n    \u2713 generate_recommendation: 68% \u2208 [60\u201382]",
+          "weight": 0.03,
+          "weighted": 0.02
+        },
+        "escalation_correctness": {
+          "score": 0.86,
+          "explanation": "\u2713 F1=0.86 \u2014 TP:3 FP:0 FN:1",
+          "weight": 0.02,
+          "weighted": 0.017
+        }
+      },
+      "composite_score": 0.41,
+      "pass": false,
+      "agent_decision": "NO BID",
+      "correct_decision": "CONDITIONAL BID",
+      "bid_score": 38,
+      "elapsed_s": 0.0,
+      "agent_turns": 4,
+      "step_scores": {
+        "extract_requirements": 95,
+        "check_capabilities": 60,
+        "get_win_loss_history": 85,
+        "identify_gaps": 88,
+        "get_sme_and_content": 73,
+        "generate_recommendation": 68
+      }
+    },
+    "TC-07: Chicago Community Health Platform": {
+      "metrics": {
+        "decision_accuracy": {
+          "score": 0.0,
+          "explanation": "\u2717 Wrong \u2014 agent: NO BID, expected: BID",
+          "weight": 0.25,
+          "weighted": 0.0
+        },
+        "score_range_accuracy": {
+          "score": 0.0,
+          "explanation": "\u2717 Score 38 outside expected range [65\u201380]",
+          "weight": 0.1,
+          "weighted": 0.0
+        },
+        "gap_recall": {
+          "score": 0.0,
+          "explanation": "\u2717 Found 0/2 required gaps",
+          "weight": 0.15,
+          "weighted": 0.0
+        },
+        "gap_precision": {
+          "score": 0.2,
+          "explanation": "\u25b3 0/5 flagged gaps verified as real",
+          "weight": 0.1,
+          "weighted": 0.02
+        },
+        "blocking_gap_recall": {
+          "score": 1.0,
+          "explanation": "\u2713 No blocking gaps expected \u2014 correct",
+          "weight": 0.2,
+          "weighted": 0.2
+        },
+        "win_theme_relevance": {
+          "score": 0.5,
+          "explanation": "\u25b3 2/4 expected theme keywords present",
+          "weight": 0.08,
+          "weighted": 0.04
+        },
+        "checklist_completeness": {
+          "score": 0.0,
+          "explanation": "\u2717 0/3 required areas in checklist",
+          "weight": 0.07,
+          "weighted": 0.0
+        },
+        "confidence_calibration": {
+          "score": 0.667,
+          "explanation": "\u25b3 4/6 steps in expected confidence range\n    \u2713 extract_requirements: 95% \u2208 [88\u2013100]\n    \u2717 check_capabilities: 60% \u2209 [78\u201395]\n    \u2713 get_win_loss_history: 85% \u2208 [70\u201388]\n    \u2713 identify_gaps: 88% \u2208 [82\u2013100]\n    \u2713 get_sme_and_content: 73% \u2208 [72\u201390]\n    \u2717 generate_recommendation: 68% \u2209 [75\u201392]",
+          "weight": 0.03,
+          "weighted": 0.02
+        },
+        "escalation_correctness": {
+          "score": 0.86,
+          "explanation": "\u2713 F1=0.86 \u2014 TP:3 FP:0 FN:1",
+          "weight": 0.02,
+          "weighted": 0.017
+        }
+      },
+      "composite_score": 0.297,
+      "pass": false,
+      "agent_decision": "NO BID",
+      "correct_decision": "BID",
+      "bid_score": 38,
+      "elapsed_s": 0.0,
+      "agent_turns": 4,
+      "step_scores": {
+        "extract_requirements": 95,
+        "check_capabilities": 60,
+        "get_win_loss_history": 85,
+        "identify_gaps": 88,
+        "get_sme_and_content": 73,
+        "generate_recommendation": 68
+      }
+    },
+    "TC-08: VA Veterans Health Platform": {
+      "metrics": {
+        "decision_accuracy": {
+          "score": 1.0,
+          "explanation": "\u2713 Correct \u2014 NO BID",
+          "weight": 0.25,
+          "weighted": 0.25
+        },
+        "score_range_accuracy": {
+          "score": 0.0,
+          "explanation": "\u2717 Score 38 outside expected range [0\u201320]",
+          "weight": 0.1,
+          "weighted": 0.0
+        },
+        "gap_recall": {
+          "score": 0.0,
+          "explanation": "\u2717 Found 0/6 required gaps",
+          "weight": 0.15,
+          "weighted": 0.0
+        },
+        "gap_precision": {
+          "score": 0.2,
+          "explanation": "\u25b3 0/5 flagged gaps verified as real",
+          "weight": 0.1,
+          "weighted": 0.02
+        },
+        "blocking_gap_recall": {
+          "score": 1.0,
+          "explanation": "\u2713 All 4 blocking gap(s) correctly identified",
+          "weight": 0.2,
+          "weighted": 0.2
+        },
+        "win_theme_relevance": {
+          "score": 0.7,
+          "explanation": "\u25b3 Win themes produced but none expected (minor concern on no-bid)",
+          "weight": 0.08,
+          "weighted": 0.056
+        },
+        "checklist_completeness": {
+          "score": 1.0,
+          "explanation": "\u2713 No checklist items expected (no-bid \u2014 correct)",
+          "weight": 0.07,
+          "weighted": 0.07
+        },
+        "confidence_calibration": {
+          "score": 0.167,
+          "explanation": "\u2717 1/6 steps in expected confidence range\n    \u2713 extract_requirements: 95% \u2208 [88\u2013100]\n    \u2717 check_capabilities: 60% \u2209 [10\u201330]\n    \u2717 get_win_loss_history: 85% \u2209 [15\u201335]\n    \u2717 identify_gaps: 88% \u2209 [90\u2013100]\n    \u2717 get_sme_and_content: 73% \u2209 [8\u201325]\n    \u2717 generate_recommendation: 68% \u2209 [92\u2013100]",
+          "weight": 0.03,
+          "weighted": 0.005
+        },
+        "escalation_correctness": {
+          "score": 0.67,
+          "explanation": "\u25b3 F1=0.67 \u2014 TP:2 FP:1 FN:1",
+          "weight": 0.02,
+          "weighted": 0.013
+        }
+      },
+      "composite_score": 0.614,
+      "pass": false,
+      "agent_decision": "NO BID",
+      "correct_decision": "NO BID",
+      "bid_score": 38,
+      "elapsed_s": 0.0,
+      "agent_turns": 4,
+      "step_scores": {
+        "extract_requirements": 95,
+        "check_capabilities": 60,
+        "get_win_loss_history": 85,
+        "identify_gaps": 88,
+        "get_sme_and_content": 73,
+        "generate_recommendation": 68
+      }
+    }
+  },
+  "summary": {
+    "total_cases": 8,
+    "passed": 0,
+    "failed": 8,
+    "pass_rate": 0.0,
+    "mean_composite": 0.453,
+    "decision_accuracy": 0.38,
+    "false_no_bids": 5,
+    "false_bids": 0,
+    "metric_means": {
+      "decision_accuracy": 0.375,
+      "blocking_gap_recall": 0.875,
+      "gap_recall": 0.25,
+      "gap_precision": 0.2,
+      "score_range_accuracy": 0.125,
+      "win_theme_relevance": 0.648,
+      "checklist_completeness": 0.51,
+      "confidence_calibration": 0.417,
+      "escalation_correctness": 0.699
+    },
+    "worst_metric": "score_range_accuracy",
+    "best_metric": "blocking_gap_recall",
+    "mean_elapsed_s": 0.0
+  }
+}
